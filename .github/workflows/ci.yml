@@ -1,0 +1,15 @@
+name: Test Secrets
+
+on: [push]
+
+jobs:
+  test-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v3
+
+      - name: Geheimen Wert verwenden
+        run: echo "Das Secret ist gesetzt!"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET_API_KEY }}
